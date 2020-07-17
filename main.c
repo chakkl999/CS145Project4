@@ -42,8 +42,8 @@ int main(void)
 	int running = 0;
 	avr_wait(10);
 	resetReading(&reading);
-    while (1) 
-    {
+	while (1) 
+	{
 		int key = get_key();
 		if(characters[key] == 'A')
 			running = 1;
@@ -64,7 +64,7 @@ int main(void)
 			displayCurrent(&reading);
 			avr_wait(500);
 		}
-    }
+	}
 }
 
 int get_sample()
@@ -123,9 +123,9 @@ void displayCurrent(readings *r)
 int get_key()
 {
 	for(int r = 0; r < 4; ++r)
-	for(int c = 0; c < 4; ++c)
-	if(is_pressed(r,c+4))
-		return r*4+c+1;
+		for(int c = 0; c < 4; ++c)
+			if(is_pressed(r,c+4))
+				return r*4+c+1;
 	return 0;
 }
 
